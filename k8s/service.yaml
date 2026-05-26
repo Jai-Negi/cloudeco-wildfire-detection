@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudeco-service
+  namespace: cloudeco
+  labels:
+    app: cloudeco
+spec:
+  selector:
+    app: cloudeco
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+      nodePort: 30000
+  type: NodePort

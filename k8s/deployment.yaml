@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudeco-deployment
+  namespace: cloudeco
+  labels:
+    app: cloudeco
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloudeco
+  template:
+    metadata:
+      labels:
+        app: cloudeco
+    spec:
+      containers:
+        - name: cloudeco
+          image: jainegi02/cloudeco:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "0.5"
+              memory: "1Gi"
+            limits:
+              cpu: "1.0"
+              memory: "2Gi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 60
+            periodSeconds: 20
+            failureThreshold: 3

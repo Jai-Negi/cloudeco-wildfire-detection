@@ -1,0 +1,28 @@
+# Kubernetes configs is not needed inside the image
+k8s/
+
+# Terraform IaC is not needed inside the image
+iac/
+
+# Locust load testing is not needed inside the image
+locust/
+
+# Docs
+readme.md
+
+# Test image is not needed inside the image
+test.jpeg
+
+# Git history
+.git/
+.gitignore
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment is not needed inside the image
+venv/
+.venv/
+env/

@@ -1,0 +1,15 @@
+model/fire_m.pt
+model/fire_m.onnx
+locust/test-images/
+iac/.terraform/
+iac/.terraform.lock.hcl
+iac/terraform.tfstate
+iac/terraform.tfstate.backup
+iac/credentials.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+test.jpeg
+test-online-small.jpg
